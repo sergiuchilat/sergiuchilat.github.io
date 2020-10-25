@@ -10,7 +10,7 @@
     <button id="getBtn">Primeste varianta</button>
     <script language="javascript">
       document.getElementById("getBtn").addEventListener("click", () => {
-          const result = students.filter(el => el.name === document.getElementById("name").value)
+          const result = students.filter(el => el.name === document.getElementById("name").value)[0]
           if(result) {
               alert(result.name + " rezolva varianta " + result.option);
           } else {
