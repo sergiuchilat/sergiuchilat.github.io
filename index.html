@@ -10,11 +10,17 @@
     <button id="getBtn">Primeste varianta</button>
     <script language="javascript">
       document.getElementById("getBtn").addEventListener("click", () => {
-          const result = students.filter(el => el.name === document.getElementById("name").value)[0]
+          let nameTofind = document.getElementById("name").value.trim();
+          nameTofind = nameTofind.replace("  ", " ");
+          let nameTofindNoDiacritics = nameTofind.replace("ă", "a");
+          nameTofindNoDiacritics = nameTofindNoDiacritics.replace("î", "i");
+          nameTofindNoDiacritics = nameTofindNoDiacritics.replace("ș", "s");
+          nameTofindNoDiacritics = nameTofindNoDiacritics.replace("ț", "t");
+          const result = students.filter(el => el.name === nameTofind || el.name === nameTofindNoDiacritics)[0]
           if(result) {
-              alert(result.name + " rezolva varianta " + result.option);
+              alert(nameTofind + " rezolva varianta " + result.option);
           } else {
-              alert("Numele nua fost gasit");
+              alert("Numele nu a fost gasit");
           }          
       });
         
@@ -24,7 +30,7 @@
               option: 2
           },
           {
-              name: "Danilă Alexandru", 
+              name: "Danila Alexandru", 
               option: 4
           },
           {
@@ -36,11 +42,11 @@
               option: 1
           },
           {
-              name: "Gavriş Vladislav", 
+              name: "Gavris Vladislav", 
               option: 1
           },
           {
-              name: "Gîrbu Ion", 
+              name: "Girbu Ion", 
               option: 3
           },
           {
@@ -68,7 +74,7 @@
               option: 4
           },
           {
-              name: "Sochircă Roman", 
+              name: "Sochirca Roman", 
               option: 4
           },
           {
@@ -104,11 +110,11 @@
               option: 1
           },
           {
-              name: "Ceban Cătălin", 
+              name: "Ceban Catalin", 
               option: 2
           },
           {
-              name: "Cernețchi Pavel", 
+              name: "Cernetchi Pavel", 
               option: 3
           },
           {
@@ -124,7 +130,7 @@
               option: 1
           },
           {
-              name: "Gușan Veronica", 
+              name: "Gusan Veronica", 
               option: 4
           },
           {
@@ -132,15 +138,14 @@
               option: 2
           },
           {
-              name: "Oroșciuc Ana", 
+              name: "Orosciuc Ana", 
               option: 1
           },
           {
-              name: "Răileanu Dina", 
+              name: "Raileanu Dina", 
               option: 3
           }
       ];
     </script>
 </body>
 </html>
-
