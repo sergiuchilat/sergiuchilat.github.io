@@ -11,7 +11,11 @@
     <script language="javascript">
       document.getElementById("getBtn").addEventListener("click", () => {
           const result = students.filter(el => el.name === document.getElementById("name").value)
-          alert(result);
+          if(result) {
+              alert(result.name + " rezolva varianta " + result.option);
+          } else {
+              alert("Numele nua fost gasit");
+          }          
       });
         
       const students = [
