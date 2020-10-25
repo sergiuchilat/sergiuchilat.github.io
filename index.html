@@ -7,10 +7,23 @@
 </head>
 <body>
     <input id="name">
+    <button id="getBtn">Primeste varianta</button>
     <script language="javascript">
-      document.getElementById("name").addEventListener("click", () => {
-        alert("work")
+      document.getElementById("getBtn").addEventListener("click", () => {
+          const result = students.filter(el => el.name === document.getElementById("name").value)
+          alert(result);
       });
+        
+      const students = [
+          {
+              name: "Crasnojon Nicoleta", 
+              option: 2
+          },
+          {
+              name: "Danilă Alexandru", 
+              option: 3
+          }
+      ];
     </script>
 </body>
 </html>
