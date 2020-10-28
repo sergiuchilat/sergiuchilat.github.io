@@ -19,220 +19,231 @@
     </div>
 
     <script language="javascript">
-         document.getElementById("getBtn").addEventListener("click", () => {
-          let nameTofind = document.getElementById("name").value.trim();
-          nameTofind = nameTofind.replace("  ", " ");
-          let nameTofindNoDiacritics = nameTofind.replace("ă", "a");
-          nameTofindNoDiacritics = nameTofindNoDiacritics.replace("î", "i");
-          nameTofindNoDiacritics = nameTofindNoDiacritics.replace("ș", "s");
-          nameTofindNoDiacritics = nameTofindNoDiacritics.replace("ț", "t");
-          const result = students.filter(el => el.name === nameTofind || el.name === nameTofindNoDiacritics)[0]
-          if(result) {
-              alert(nameTofind + " rezolva varianta " + result.option);
-          } else {
-              alert("Numele nu a fost gasit");
-          }          
-      });
+        document.getElementById("getBtn").addEventListener("click", () => {
+            let nameTofind = document.getElementById("name").value.trim();
+            nameTofind = nameTofind.replace("  ", " ");
+            let nameTofindNoDiacritics = nameTofind.replace("ă", "a");
+            nameTofindNoDiacritics = nameTofindNoDiacritics.replace("î", "i");
+            nameTofindNoDiacritics = nameTofindNoDiacritics.replace("ș", "s");
+            nameTofindNoDiacritics = nameTofindNoDiacritics.replace("ț", "t");
+            const result = students.filter(el => el.name === nameTofind || el.name === nameTofindNoDiacritics)[0]
+            if (result && result.option) {
+                //alert(nameTofind + " rezolva varianta " + result.option);
+                document.getElementById("input").style.display = 'none';
+                document.getElementById("output").style.display = 'block';
+                document.getElementById("result").href = links[result.option - 1];
+            } else {
+                alert("Numele nu a fost gasit");
+                document.getElementById("input").style.display = 'block';
+                document.getElementById("output").style.display = 'none';
+            }
+        });
 
-      const students = [
-          {
-              name: "Crasnojon Nicoleta", 
-              option: 2
-          },
-          {
-              name: "Danila Alexandru", 
-              option: 4
-          },
-          {
-              name: "Darie Cristian", 
-              option: 3
-          },
-          {
-              name: "Garbar Olga", 
-              option: 1
-          },
-          {
-              name: "Gavris Vladislav", 
-              option: 1
-          },
-          {
-              name: "Girbu Ion", 
-              option: 3
-          },
-          {
-              name: "Jiganov Andrei", 
-              option: 4
-          },
-          {
-              name: "Lunic Pintilie", 
-              option: 2
-          },
-          {
-              name: "Nenescu Sergiu", 
-              option: 2
-          },
-          {
-              name: "Porcescu Dmitri", 
-              option: 3
-          },
-          {
-              name: "Pricop Ana", 
-              option: 1
-          },
-          {
-              name: "Roman Radion", 
-              option: 4
-          },
-          {
-              name: "Sochirca Roman", 
-              option: 4
-          },
-          {
-              name: "Stoian Iulia", 
-              option: 1
-          },
-          {
-              name: "Surujiu Valeriu", 
-              option: 3
-          },
-          {
-              name: "Vrabii Valentin", 
-              option: 2
-          },
-          {
-              name: "Balan Silvian", 
-              option: 3
-          },
-          {
-              name: "Bodnari Roman", 
-              option: 4
-          },
-          {
-              name: "Burlaca Valentina", 
-              option: 1
-          },
-          {
-              name: "Cabac Valeria", 
-              option: 2
-          },
-          {
-              name: "Cazacu-Condrat Dumitru", 
-              option: 1
-          },
-          {
-              name: "Ceban Catalin", 
-              option: 2
-          },
-          {
-              name: "Cernetchi Pavel", 
-              option: 3
-          },
-          {
-              name: "Cojocaru Liviu", 
-              option: 4
-          },
-          {
-              name: "Colesnic Iulian", 
-              option: 3
-          },
-          {
-              name: "Amoasii David", 
-              option: 1
-          },
-          {
-              name: "Gusan Veronica", 
-              option: 4
-          },
-          {
-              name: "Nicolaiciuc Anastasia", 
-              option: 2
-          },
-          {
-              name: "Orosciuc Ana", 
-              option: 1
-          },
-          {
-              name: "Raileanu Dina", 
-              option: 3
-          },
-          {
-              name: "Babii Dumitru", 
-              option: 1
-          },
-          {
-              name: "Cervatiuc Vladimir", 
-              option: 3
-          },
-          {
-              name: "Chitcaneanu Alla", 
-              option: 4
-          },
-          {
-              name: "Cibotari Stanislav", 
-              option: 2
-          },
-          {
-              name: "Cotiuba Rostislav", 
-              option: 1
-          },
-          {
-              name: "Gagim Darius-Ioan", 
-              option: 2
-          },
-          {
-              name: "Gitu Marin", 
-              option: 3
-          },
-          {
-              name: "Grabovschi Cristian", 
-              option: 4
-          },
-          {
-              name: "Lîsenco Dumitru", 
-              option: 4
-          },
-          {
-              name: "Marcoci Valeria", 
-              option: 1
-          },
-          {
-              name: "Martin Alexandr", 
-              option: 3
-          },
-          {
-              name: "Matveeva Anna", 
-              option: 2
-          },
-          {
-              name: "Moiseenco Nichita", 
-              option: 2
-          },
-          {
-              name: "Rutcovschi Vadim", 
-              option: 1
-          },
-          {
-              name: "Scalitchi Dmitri", 
-              option: 3
-          },
-          {
-              name: "Slav Eduard", 
-              option: 4
-          },
-          {
-              name: "Tean Valentin-Ilies", 
-              option: 2
-          },
-          {
-              name: "Ulmada Radu", 
-              option: 4
-          },
-          {
-              name: "Zubcov Nicolai", 
-              option: 1
-          }          
-          
-      ];
+        const links = [
+            "https://docs.google.com/document/d/1vdZt7AtjOfap3K9z3zkqMx5HQVZekKzDlvfBx2HK8Jw/edit?usp=sharing", 
+            "https://docs.google.com/document/d/1FZCd9QvTMNsLMsWXsQushIp7jKIGNe-Xgr3JUb87vNQ/edit?usp=sharing",
+            "https://docs.google.com/document/d/1LFemWnWtx8hLdw5wcx7dbgYTlanidcUKYre3mCwzq2I/edit?usp=sharing",
+            "https://docs.google.com/document/d/1LFemWnWtx8hLdw5wcx7dbgYTlanidcUKYre3mCwzq2I/edit?usp=sharing"
+        ];
+        const students = [
+            {
+                name: "Crasnojon Nicoleta",
+                option: 2
+            },
+            {
+                name: "Danila Alexandru",
+                option: 4
+            },
+            {
+                name: "Darie Cristian",
+                option: 3
+            },
+            {
+                name: "Garbar Olga",
+                option: 1
+            },
+            {
+                name: "Gavris Vladislav",
+                option: 1
+            },
+            {
+                name: "Girbu Ion",
+                option: 3
+            },
+            {
+                name: "Jiganov Andrei",
+                option: 4
+            },
+            {
+                name: "Lunic Pintilie",
+                option: 2
+            },
+            {
+                name: "Nenescu Sergiu",
+                option: 2
+            },
+            {
+                name: "Porcescu Dmitri",
+                option: 3
+            },
+            {
+                name: "Pricop Ana",
+                option: 1
+            },
+            {
+                name: "Roman Radion",
+                option: 4
+            },
+            {
+                name: "Sochirca Roman",
+                option: 4
+            },
+            {
+                name: "Stoian Iulia",
+                option: 1
+            },
+            {
+                name: "Surujiu Valeriu",
+                option: 3
+            },
+            {
+                name: "Vrabii Valentin",
+                option: 2
+            },
+            {
+                name: "Balan Silvian",
+                option: 3
+            },
+            {
+                name: "Bodnari Roman",
+                option: 4
+            },
+            {
+                name: "Burlaca Valentina",
+                option: 1
+            },
+            {
+                name: "Cabac Valeria",
+                option: 2
+            },
+            {
+                name: "Cazacu-Condrat Dumitru",
+                option: 1
+            },
+            {
+                name: "Ceban Catalin",
+                option: 2
+            },
+            {
+                name: "Cernetchi Pavel",
+                option: 3
+            },
+            {
+                name: "Cojocaru Liviu",
+                option: 4
+            },
+            {
+                name: "Colesnic Iulian",
+                option: 3
+            },
+            {
+                name: "Amoasii David",
+                option: 1
+            },
+            {
+                name: "Gusan Veronica",
+                option: 4
+            },
+            {
+                name: "Nicolaiciuc Anastasia",
+                option: 2
+            },
+            {
+                name: "Orosciuc Ana",
+                option: 1
+            },
+            {
+                name: "Raileanu Dina",
+                option: 3
+            },
+            {
+                name: "Babii Dumitru",
+                option: 1
+            },
+            {
+                name: "Cervatiuc Vladimir",
+                option: 3
+            },
+            {
+                name: "Chitcaneanu Alla",
+                option: 4
+            },
+            {
+                name: "Cibotari Stanislav",
+                option: 2
+            },
+            {
+                name: "Cotiuba Rostislav",
+                option: 1
+            },
+            {
+                name: "Gagim Darius-Ioan",
+                option: 2
+            },
+            {
+                name: "Gitu Marin",
+                option: 3
+            },
+            {
+                name: "Grabovschi Cristian",
+                option: 4
+            },
+            {
+                name: "Lîsenco Dumitru",
+                option: 4
+            },
+            {
+                name: "Marcoci Valeria",
+                option: 1
+            },
+            {
+                name: "Martin Alexandr",
+                option: 3
+            },
+            {
+                name: "Matveeva Anna",
+                option: 2
+            },
+            {
+                name: "Moiseenco Nichita",
+                option: 2
+            },
+            {
+                name: "Rutcovschi Vadim",
+                option: 1
+            },
+            {
+                name: "Scalitchi Dmitri",
+                option: 3
+            },
+            {
+                name: "Slav Eduard",
+                option: 4
+            },
+            {
+                name: "Tean Valentin-Ilies",
+                option: 2
+            },
+            {
+                name: "Ulmada Radu",
+                option: 4
+            },
+            {
+                name: "Zubcov Nicolai",
+                option: 1
+            }
+
+        ];
     </script>
 </body>
 
